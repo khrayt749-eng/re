@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تسديد القروض والمتعثرات وإيقاف الخدمات</title>
+<meta name="description" content="خدمة تسديد القروض البنكية، تسديد المتعثرات، ورفع إيقاف الخدمات — تواصل الآن.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b1220;
+    --card:#111a2e;
+    --card2:#16223c;
+    --gold:#e8b84b;
+    --gold2:#f5d689;
+    --green:#22c55e;
+    --text:#f1f5f9;
+    --muted:#94a3b8;
+    --line:rgba(232,184,75,.25);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Cairo',sans-serif;
+    background:
+      radial-gradient(1000px 500px at 50% -10%, rgba(232,184,75,.12), transparent 60%),
+      var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    padding:24px 14px 90px;
+  }
+  .flyer{
+    width:100%;
+    max-width:440px;
+    background:linear-gradient(180deg,var(--card),var(--card2));
+    border:1px solid var(--line);
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 25px 60px rgba(0,0,0,.55);
+    position:relative;
+  }
+  /* ===== الشريط العلوي ===== */
+  .top{
+    background:linear-gradient(135deg,#1a2745,#0f1830);
+    border-bottom:1px solid var(--line);
+    padding:28px 22px 22px;
+    text-align:center;
+    position:relative;
+  }
+  .badge{
+    display:inline-block;
+    background:rgba(232,184,75,.12);
+    border:1px solid var(--line);
+    color:var(--gold2);
+    font-size:12.5px;
+    font-weight:700;
+    padding:5px 14px;
+    border-radius:999px;
+    margin-bottom:14px;
+    letter-spacing:.3px;
+  }
+  .top h1{
+    font-size:25px;
+    font-weight:900;
+    line-height:1.5;
+  }
+  .top h1 .gold{color:var(--gold)}
+  .city{
+    margin-top:10px;
+    font-size:14.5px;
+    color:var(--muted);
+    font-weight:600;
+  }
+  .city svg{vertical-align:-3px;margin-inline-start:4px;color:var(--gold)}
+  /* ===== شريط العرض ===== */
+  .offer{
+    background:linear-gradient(90deg,var(--gold),var(--gold2));
+    color:#1a1206;
+    text-align:center;
+    font-weight:900;
+    font-size:16.5px;
+    padding:13px 16px;
+  }
+  .offer small{display:block;font-size:12px;font-weight:700;opacity:.85;margin-top:2px}
+  /* ===== الأقسام ===== */
+  .section{padding:22px 22px 0}
+  .section:last-of-type{padding-bottom:8px}
+  .section h2{
+    font-size:16px;
+    font-weight:800;
+    color:var(--gold2);
+    margin-bottom:14px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .section h2::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:linear-gradient(-90deg,var(--line),transparent);
+  }
+  ul.services{list-style:none}
+  ul.services li{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    font-size:15px;
+    font-weight:600;
+    padding:9px 0;
+    border-bottom:1px dashed rgba(148,163,184,.15);
+  }
+  ul.services li:last-child{border-bottom:none}
+  ul.services li svg{flex-shrink:0;margin-top:2px;color:var(--gold)}
+  .features{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+  .feature{
+    background:rgba(232,184,75,.06);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:12px 10px;
+    text-align:center;
+    font-size:13px;
+    font-weight:700;
+    line-height:1.6;
+  }
+  .feature svg{display:block;margin:0 auto 6px;color:var(--gold)}
+  /* ===== رقم التواصل ===== */
+  .phone-box{
+    margin:22px 22px 0;
+    background:rgba(255,255,255,.03);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:14px 16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+  }
+  .phone-box .label{font-size:12.5px;color:var(--muted);font-weight:700}
+  .phone-box .number{
+    font-size:21px;
+    font-weight:900;
+    color:var(--gold2);
+    direction:ltr;
+    letter-spacing:1px;
+    user-select:all;
+  }
+  /* ===== الأزرار ===== */
+  .cta{
+    display:flex;
+    gap:12px;
+    padding:20px 22px 26px;
+  }
+  .btn{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    text-decoration:none;
+    font-family:'Cairo',sans-serif;
+    font-size:16px;
+    font-weight:800;
+    padding:14px 10px;
+    border-radius:14px;
+    transition:transform .15s ease, filter .15s ease;
+  }
+  .btn:active{transform:scale(.96)}
+  .btn-call{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#1a1206}
+  .btn-wa{background:linear-gradient(135deg,#16a34a,#22c55e);color:#fff}
+  .btn svg{flex-shrink:0}
+  .footer{
+    text-align:center;
+    font-size:11.5px;
+    color:var(--muted);
+    padding:0 22px 20px;
+    font-weight:600;
+  }
+  /* ===== أزرار عائمة ===== */
+  .floating{
+    position:fixed;
+    right:14px;
+    bottom:14px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    z-index:99;
+  }
+  .floating a{
+    width:54px;height:54px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    text-decoration:none;
+    box-shadow:0 8px 24px rgba(0,0,0,.45);
+    transition:transform .15s ease;
+  }
+  .floating a:active{transform:scale(.92)}
+  .float-wa{background:#22c55e;animation:pulse 2s infinite}
+  .float-call{background:linear-gradient(135deg,var(--gold),var(--gold2))}
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(34,197,94,.5)}
+    70%{box-shadow:0 0 0 16px rgba(34,197,94,0)}
+    100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}
+  }
+  @media (min-width:520px){
+    .top h1{font-size:28px}
+  }
+  /* ===== شريط موافقة الكوكيز ===== */
+  #consentBanner{
+    position:fixed;
+    right:12px;left:12px;bottom:12px;
+    max-width:440px;margin:0 auto;
+    background:#111a2e;
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:14px 16px;
+    z-index:100;
+    box-shadow:0 12px 40px rgba(0,0,0,.55);
+    display:none;
+  }
+  #consentBanner.show{display:block}
+  #consentBanner p{
+    font-size:12.5px;
+    color:var(--text);
+    line-height:1.8;
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  .cb-actions{display:flex;gap:8px}
+  .cb-actions button{
+    flex:1;
+    font-family:'Cairo',sans-serif;
+    font-weight:800;
+    font-size:13.5px;
+    padding:9px;
+    border-radius:10px;
+    border:none;
+    cursor:pointer;
+  }
+  #cbAccept{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#1a1206}
+  #cbReject{background:transparent;border:1px solid var(--line);color:var(--muted)}
+  #cookieSettings{color:var(--gold2);text-decoration:underline}
+  body.has-banner .floating{bottom:170px}
+</style>
+</head>
+<body>
+
+<div class="flyer">
+  <!-- رأس الفلاير -->
+  <div class="top">
+    <span class="badge">خدمة موثوقة وسريعة</span>
+    <h1>تسديد <span class="gold">القروض</span> والمتعثرات<br>ورفع إيقاف الخدمات</h1>
+    <div class="city">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      الرياض — ونخدم جميع مناطق المملكة
+    </div>
+  </div>
+
+  <!-- شريط العرض -->
+  <div class="offer">
+    عرض خاص لفترة محدودة — استشارة مجانية
+    <small>تواصل معنا الآن لمعرفة تفاصيل العرض والسعر</small>
+  </div>
+
+  <!-- قائمة الخدمات -->
+  <div class="section">
+    <h2>خدماتنا</h2>
+    <ul class="services">
+      <li>
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>
+        تسديد القروض البنكية وأنظمة التقسيط
+      </li>
+      <li>
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>
+        تسديد المتعثرات وسداد المتأخرات
+      </li>
+      <li>
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>
+        رفع إيقاف الخدمات (الاتصالات — الخدمات الحكومية)
+      </li>
+      <li>
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>
+        متابعة كاملة للإجراءات حتى الإنجاز
+      </li>
+    </ul>
+  </div>
+
+  <!-- المميزات -->
+  <div class="section">
+    <h2>لماذا نحن؟</h2>
+    <div class="features">
+      <div class="feature">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        إنجاز سريع<br>بأقل وقت
+      </div>
+      <div class="feature">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        سرية تامة<br>لبياناتك
+      </div>
+      <div class="feature">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        فريق محترف<br>ذو خبرة
+      </div>
+      <div class="feature">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        متاحون لخدمتك<br>طوال الأسبوع
+      </div>
+    </div>
+  </div>
+
+  <!-- رقم التواصل -->
+  <div class="phone-box">
+    <div>
+      <div class="label">للتواصل والاستفسار</div>
+      <div class="number" id="phoneDisplay">0552 705 376</div>
+    </div>
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#e8b84b" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  </div>
+
+  <!-- الأزرار -->
+  <div class="cta">
+    <a class="btn btn-call" href="tel:0552705376" id="btnCall">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      اتصل الآن
+    </a>
+    <a class="btn btn-wa" href="https://wa.me/966552705376?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A9%20%D8%AA%D8%B3%D8%AF%D9%8A%D8%AF%20%D8%A7%D9%84%D9%82%D8%B1%D9%88%D8%B6" target="_blank" rel="noopener" id="btnWa">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+      واتساب
+    </a>
+  </div>
+
+  <div class="footer">
+    خدمة معتمدة — تواصل معنا في أي وقت ونحن نسعد بخدمتك
+    <div style="margin-top:6px;font-size:10.5px;line-height:1.8">
+      عند الضغط على أزرار الاتصال أو واتساب يُرسَل حدث قياس إلى TikTok لقياس أداء الإعلانات، للزوار الموافقين فقط.
+      <a href="#" id="cookieSettings">إعدادات الكوكيز</a>
+    </div>
+  </div>
+</div>
+
+<!-- أزرار عائمة على اليسار (في RTL يسار الصفحة = يمين الشاشة للعربي عادة) -->
+<div class="floating">
+  <a class="float-wa" href="https://wa.me/966552705376" target="_blank" rel="noopener" aria-label="واتساب">
+    <svg width="27" height="27" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+  </a>
+  <a class="float-call" href="tel:0552705376" aria-label="اتصال">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a1206" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  </a>
+</div>
+
+<script>
+  // ====== غيّر الرقم من هنا فقط وسيتحدث في كل الأزرار تلقائياً ======
+  var PHONE_LOCAL = "0552705376";      // الرقم المحلي لزر الاتصال tel:
+  var PHONE_INTL  = "966552705376";    // الرقم الدولي لواتساب wa.me (بدون + أو أصفار بادية)
+  var WA_MESSAGE  = "السلام عليكم، أريد الاستفسار عن خدمة تسديد القروض";
+
+  (function(){
+    var waLink = "https://wa.me/" + PHONE_INTL + "?text=" + encodeURIComponent(WA_MESSAGE);
+    document.querySelectorAll('a[href^="tel:"]').forEach(function(a){ a.href = "tel:" + PHONE_LOCAL; });
+    document.querySelectorAll('a[href*="wa.me"]').forEach(function(a){ a.href = waLink; a.target = "_blank"; a.rel = "noopener"; });
+    document.getElementById("phoneDisplay").textContent = PHONE_LOCAL.replace(/(\d{4})(\d{3})(\d{3})/, "$1 $2 $3");
+
+    // حركة ظهور ناعمة للكارت
+    var flyer = document.querySelector(".flyer");
+    flyer.style.opacity = 0;
+    flyer.style.transform = "translateY(14px)";
+    flyer.style.transition = "opacity .5s ease, transform .5s ease";
+    requestAnimationFrame(function(){
+      flyer.style.opacity = 1;
+      flyer.style.transform = "translateY(0)";
+    });
+  })();
+</script>
+
+<!-- شريط موافقة الكوكيز -->
+<div id="consentBanner" role="dialog" aria-label="الموافقة على القياس">
+  <p>نستخدم تقنية قياس من <b>TikTok</b> لمعرفة عدد من ضغط على أزرار الاتصال والواتساب وتحسين إعلاناتنا. لا نجمع أي بيانات حساسة. يمكنك الموافقة أو الرفض، وتغيير اختيارك في أي وقت من "إعدادات الكوكيز" أسفل الصفحة.</p>
+  <div class="cb-actions">
+    <button id="cbAccept" type="button">موافق</button>
+    <button id="cbReject" type="button">رفض</button>
+  </div>
+</div>
+
+<!-- TikTok Pixel + الموافقة + تتبع أحداث التواصل -->
+<script>
+(function(){
+  var PIXEL_ID='DB7M60RC77U45L31J16G';
+  var CONSENT_KEY='tt_consent_v1';
+  var CONSENT_NOTICE='v1';
+  var EEA=['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SE','SI','SK','ES','IS','LI','NO','GB','CH'];
+  var state='held'; // held | granted | revoked
+
+  // ===== بكسل تيك توك =====
+  !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)}}(window,document,'ttq');
+  ttq.load(PIXEL_ID);
+  ttq.holdConsent();
+  ttq.page();
+
+  // ===== تخزين الاختيار =====
+  function readStored(){
+    try{
+      var raw=localStorage.getItem(CONSENT_KEY);
+      if(!raw) return null;
+      var v=JSON.parse(raw);
+      if(v && (v.choice==='granted'||v.choice==='denied')) return v;
+    }catch(e){}
+    return null;
+  }
+  function applyChoice(choice, persist){
+    if(choice==='granted'){ ttq.grantConsent(); state='granted'; }
+    else { ttq.revokeConsent(); state='revoked'; }
+    if(persist){
+      try{
+        localStorage.setItem(CONSENT_KEY, JSON.stringify({choice:choice, ts:new Date().toISOString(), notice:CONSENT_NOTICE}));
+      }catch(e){}
+    }
+    hideBanner();
+  }
+
+  // ===== تحديد المنطقة (شريط لأوروبا فقط) =====
+  function tzNeedsBanner(){
+    try{
+      var tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';
+      if(tz.indexOf('Europe/')===0||tz==='Atlantic/Canary'||tz==='Africa/Ceuta'||tz==='Africa/Melilla') return true;
+      if(!tz||tz==='UTC') return true; // غير معروف → الاحتياط الأكثر تحفظاً
+      return false;
+    }catch(e){ return true; }
+  }
+  function regionNeedsBanner(){
+    return new Promise(function(resolve){
+      var done=false;
+      function finish(v){ if(!done){done=true;resolve(v);} }
+      var timer=setTimeout(function(){ finish(tzNeedsBanner()); },2000);
+      fetch('/cdn-cgi/trace',{cache:'no-store'}).then(function(r){
+        return r.ok ? r.text() : Promise.reject(new Error('unavailable'));
+      }).then(function(txt){
+        clearTimeout(timer);
+        var m=txt.match(/loc=([A-Za-z]{2})/);
+        var loc=m?m[1].toUpperCase():'XX';
+        if(loc==='XX'||loc==='T1'){ finish(true); return; }
+        finish(EEA.indexOf(loc)!==-1);
+      }).catch(function(){
+        clearTimeout(timer);
+        finish(tzNeedsBanner());
+      });
+    });
+  }
+
+  // ===== الشريط =====
+  var banner=document.getElementById('consentBanner');
+  function showBanner(){ banner.classList.add('show'); document.body.classList.add('has-banner'); }
+  function hideBanner(){ banner.classList.remove('show'); document.body.classList.remove('has-banner'); }
+  document.getElementById('cbAccept').addEventListener('click',function(){ applyChoice('granted',true); });
+  document.getElementById('cbReject').addEventListener('click',function(){ applyChoice('denied',true); });
+  var settings=document.getElementById('cookieSettings');
+  if(settings){
+    settings.addEventListener('click',function(ev){ ev.preventDefault(); showBanner(); });
+  }
+
+  regionNeedsBanner().then(function(needsBanner){
+    var stored=readStored();
+    if(stored){ applyChoice(stored.choice==='granted'?'granted':'denied', false); return; }
+    if(!needsBanner){ ttq.grantConsent(); state='granted'; return; }
+    showBanner(); // يبقى القياس موقوفاً حتى يختار الزائر
+  });
+
+  // ===== تتبع أحداث التواصل =====
+  function trackContact(kind){
+    if(state!=='granted') return; // لا إرسال قبل الموافقة، ولا إعادة إرسال لأحداث سبق رفضها
+    try{ ttq.track('Contact',{content_name:kind,content_id:PHONE_INTL,phone_number:PHONE_INTL}); }catch(e){}
+  }
+  document.getElementById('btnCall').addEventListener('click',function(){ trackContact('call'); });
+  document.getElementById('btnWa').addEventListener('click',function(){ trackContact('whatsapp'); });
+  document.querySelector('.float-call').addEventListener('click',function(){ trackContact('call'); });
+  document.querySelector('.float-wa').addEventListener('click',function(){ trackContact('whatsapp'); });
+})();
+</script>
+
+</body>
+</html>
